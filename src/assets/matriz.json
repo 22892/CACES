@@ -1,0 +1,603 @@
+[
+    {
+        "level": 1, 
+        "disabled": false, 
+        "selected": false, 
+        "men_path": "/multimedia", 
+        "men_icono": "user", 
+        "men_titulo": "1. CRITERIO ORGANIZACIÓN", 
+        "menusHijos":   [
+                            {
+                                "level": 2, 
+                                "disabled": false, 
+                                "selected": false, 
+                                "men_path": "/multimedia", 
+                                "men_icono": "user", 
+                                "men_titulo": "1.1 SUBCRITERIO PLANIFICACIÓN Y DESARROLLO", 
+                                "open":false,
+                                "menusHijos":   [
+                                                    {
+                                                        "level": 3, 
+                                                        "disabled": false, 
+                                                        "selected": false, 
+                                                        "men_path": "/multimedia", 
+                                                        "men_icono": "user", 
+                                                        "men_titulo": "1.1.1 INDICADOR PLANIFICACIÓN ESTRATÉGICA Y OPERATIVA", 
+                                                        "open":false
+                                                    },
+                                                    {
+                                                        "level": 3, 
+                                                        "disabled": false, 
+                                                        "selected": false, 
+                                                        "men_path": "/multimedia", 
+                                                        "men_icono": "user", 
+                                                        "men_titulo": "1.1.2 INDICADOR RELACIONES INTERINSTITUCIONALES PARA EL DESARROLLO", 
+                                                        "open":false
+                                                    },
+                                                    {
+                                                        "level": 3, 
+                                                        "disabled": false, 
+                                                        "selected": false, 
+                                                        "men_path": "/multimedia", 
+                                                        "men_icono": "user", 
+                                                        "men_titulo": "1.1.3INDICADOR ASEGURAMIENTO INTERNO DE LA CALIDAD", 
+                                                        "open":false
+                                                    },
+                                                    {
+                                                        "level": 3, 
+                                                        "disabled": false, 
+                                                        "selected": false, 
+                                                        "men_path": "/multimedia", 
+                                                        "men_icono": "user", 
+                                                        "men_titulo": "1.1.4INDICADOR SISTEMA INFORMATICO DE GESTIÓN", 
+                                                        "open":false
+                                                    }
+                                                ]
+                            },
+                            {
+                                "level": 2, 
+                                "disabled": false, 
+                                "selected": false, 
+                                "men_path": "/multimedia", 
+                                "men_icono": "user", 
+                                "men_titulo": "1.2 SUBCRITERIO GESTIÓN SOCIAL", 
+                                "open":false,
+                                "menusHijos":   [
+                                                    {
+                                                        "level": 3, 
+                                                        "disabled": false, 
+                                                        "selected": false, 
+                                                        "men_path": "/multimedia", 
+                                                        "men_icono": "user", 
+                                                        "men_titulo": "1.2.1 INDICADOR IGUALDAD DE OPORTUNIDADES", 
+                                                        "open":false
+                                                    },
+                                                    {
+                                                        "level": 3, 
+                                                        "disabled": false, 
+                                                        "selected": false, 
+                                                        "men_path": "/multimedia", 
+                                                        "men_icono": "user", 
+                                                        "men_titulo": "1.2.2 INDICADOR ÉTICA Y TRANSPARENCIA", 
+                                                        "open":false
+                                                    },
+                                                    {
+                                                        "level": 3, 
+                                                        "disabled": false, 
+                                                        "selected": false, 
+                                                        "men_path": "/multimedia", 
+                                                        "men_icono": "user", 
+                                                        "men_titulo": "1.2.3 INDICADOR BIENESTAR PSICOLÓGICO", 
+                                                        "open":false
+                                                    }
+                                                ]
+                            }
+                        ]
+
+                        
+        
+    },
+    {
+        "level": 1, 
+        "disabled": false, 
+        "selected": false, 
+        "men_path": "/multimedia", 
+        "men_icono": "user", 
+        "men_titulo": "2. CRITERIO INFRAESTRUCTURA", 
+        "menusHijos":   [
+                            {
+                                    "level": 2, 
+                                    "disabled": false, 
+                                    "selected": false, 
+                                    "men_path": "/multimedia", 
+                                    "men_icono": "user", 
+                                    "men_titulo": "2.1 SUBCRITERIO INFRAESTRUCTURA BÁSICA", 
+                                    "open":false,
+                                    "menusHijos":   [
+                                                        {
+                                                            "level": 3, 
+                                                            "disabled": false, 
+                                                            "selected": false, 
+                                                            "men_path": "/multimedia", 
+                                                            "men_icono": "user", 
+                                                            "men_titulo": "2.1.1 INDICADOR PUESTOS DE TRABAJO DE LOS PROFESORES", 
+                                                            "open":false
+                                                        },
+                                                        {
+                                                            "level": 3, 
+                                                            "disabled": false, 
+                                                            "selected": false, 
+                                                            "men_path": "/multimedia", 
+                                                            "men_icono": "user", 
+                                                            "men_titulo": "2.1.2 INDICADOR SEGURIDAD Y SALUD OCUPACIONAL", 
+                                                            "open":false
+                                                        },
+                                                        {
+                                                            "level": 3, 
+                                                            "disabled": false, 
+                                                            "selected": false, 
+                                                            "men_path": "/multimedia", 
+                                                            "men_icono": "user", 
+                                                            "men_titulo": "2.1.3 INDICADOR ACCESIBILIDAD FÍSICA Y ESPARCIMIENTO", 
+                                                            "open":false
+                                                        },
+                                                        {
+                                                            "level": 3, 
+                                                            "disabled": false, 
+                                                            "selected": false, 
+                                                            "men_path": "/multimedia", 
+                                                            "men_icono": "user", 
+                                                            "men_titulo": "2.1.4 INDICADOR ANCHO DE BANDA", 
+                                                            "open":false
+                                                        }
+                                                    ]
+
+                            }
+                        ]
+    },
+    {
+        "level": 1, 
+        "disabled": false, 
+        "selected": false, 
+        "men_path": "/multimedia", 
+        "men_icono": "user", 
+        "men_titulo": "3. CRITERIO PROFESORES", 
+        "menusHijos":   [
+                            {
+                                    "level": 2, 
+                                    "disabled": false, 
+                                    "selected": false, 
+                                    "men_path": "/multimedia", 
+                                    "men_icono": "user", 
+                                    "men_titulo": "3.1 SUBCRITERIO SELECCIÓN Y FORMACIÓN PREVIA", 
+                                    "open":false,
+                                    "menusHijos":   [
+                                                        {
+                                                            "level": 3, 
+                                                            "disabled": false, 
+                                                            "selected": false, 
+                                                            "men_path": "/multimedia", 
+                                                            "men_icono": "user", 
+                                                            "men_titulo": "3.1.1 INDICADOR SELECCIÓN DE PROFESORES", 
+                                                            "open":false
+                                                        },
+                                                        {
+                                                            "level": 3, 
+                                                            "disabled": false, 
+                                                            "selected": false, 
+                                                            "men_path": "/multimedia", 
+                                                            "men_icono": "user", 
+                                                            "men_titulo": "3.1.2 INDICADOR FORMACIÓN DE POSGRADO", 
+                                                            "open":false
+                                                        },
+                                                        {
+                                                            "level": 3, 
+                                                            "disabled": false, 
+                                                            "selected": false, 
+                                                            "men_path": "/multimedia", 
+                                                            "men_icono": "user", 
+                                                            "men_titulo": "3.1.3 INDICADOR EXPERIENCIA PROFESIONAL PRÁCTICA DE PROFESORES TC DE CONTENIDOS PROFESIONALES", 
+                                                            "open":false
+                                                        },
+                                                        {
+                                                            "level": 3, 
+                                                            "disabled": false, 
+                                                            "selected": false, 
+                                                            "men_path": "/multimedia", 
+                                                            "men_icono": "user", 
+                                                            "men_titulo": "3.1.4 INDICADOR TITULARIDAD DE PROFESORES TC Y MT", 
+                                                            "open":false
+                                                        },
+                                                        {
+                                                            "level": 3, 
+                                                            "disabled": false, 
+                                                            "selected": false, 
+                                                            "men_path": "/multimedia", 
+                                                            "men_icono": "user", 
+                                                            "men_titulo": "3.1.5 INDICADOR CARGA HORARIA SEMANAL DE LOS PROFESORES TC", 
+                                                            "open":false
+                                                        },
+                                                        {
+                                                            "level": 3, 
+                                                            "disabled": false, 
+                                                            "selected": false, 
+                                                            "men_path": "/multimedia", 
+                                                            "men_icono": "user", 
+                                                            "men_titulo": "3.1.6 INDICADOR EVALUACIÓN DE LOS PROFESORES", 
+                                                            "open":false
+                                                        },
+                                                        {
+                                                            "level": 3, 
+                                                            "disabled": false, 
+                                                            "selected": false, 
+                                                            "men_path": "/multimedia", 
+                                                            "men_icono": "user", 
+                                                            "men_titulo": "3.1.7 INDICADOR FORMACIÓN ACADEMICA EN CURSO Y CAPACITACIÓN", 
+                                                            "open":false
+                                                        }
+                                                        
+                                                    ]
+                            },
+                            {
+
+                                "level": 2, 
+                                "disabled": false, 
+                                "selected": false, 
+                                "men_path": "/multimedia", 
+                                "men_icono": "user", 
+                                "men_titulo": "3.2 SUBCRITERIO REMUNERACIONES", 
+                                "open":false,
+                                "menusHijos":   [
+                                                    {
+                                                        "level": 3, 
+                                                        "disabled": false, 
+                                                        "selected": false, 
+                                                        "men_path": "/multimedia", 
+                                                        "men_icono": "user", 
+                                                        "men_titulo": "3.2.1 INDICADOR REMUNERACIÓN PROMEDIO MENSUAL TC", 
+                                                        "open":false
+                                                    },
+                                                    {
+                                                        "level": 3, 
+                                                        "disabled": false, 
+                                                        "selected": false, 
+                                                        "men_path": "/multimedia", 
+                                                        "men_icono": "user", 
+                                                        "men_titulo": "3.2.2 INDICADOR REMUNERACIÓN PROMEDIO POR HORA TP", 
+                                                        "open":false
+                                                    }
+                                                ]
+                            }
+
+                        ]
+
+    },
+    {
+        "level": 1, 
+        "disabled": false, 
+        "selected": false, 
+        "men_path": "/multimedia", 
+        "men_icono": "user", 
+        "men_titulo": "4. CRITERIO DOCENCIA", 
+        "menusHijos":   [
+                            {
+                                    "level": 2, 
+                                    "disabled": false, 
+                                    "selected": false, 
+                                    "men_path": "/multimedia", 
+                                    "men_icono": "user", 
+                                    "men_titulo": "4.1 SUBCRITERIO FORMACIÓN ACADÉMICA", 
+                                    "open":false,
+                                    "menusHijos":   [
+                                                        {
+                                                            "level": 3, 
+                                                            "disabled": false, 
+                                                            "selected": false, 
+                                                            "men_path": "/multimedia", 
+                                                            "men_icono": "user", 
+                                                            "men_titulo": "4.1.1 INDICADOR PROGRAMAS DE ESTUDIO DE LAS ASIGNATURAS", 
+                                                            "open":false
+                                                        },
+                                                        {
+                                                            "level": 3, 
+                                                            "disabled": false, 
+                                                            "selected": false, 
+                                                            "men_path": "/multimedia", 
+                                                            "men_icono": "user", 
+                                                            "men_titulo": "4.1.2 INDICADOR AFINIDAD FORMACIÓN DOCENCIA", 
+                                                            "open":false
+                                                        },
+                                                        {
+                                                            "level": 3, 
+                                                            "disabled": false, 
+                                                            "selected": false, 
+                                                            "men_path": "/multimedia", 
+                                                            "men_icono": "user", 
+                                                            "men_titulo": "4.1.3 INDICADOR SEGUIMIENTO, CONTROL Y EVALUACIÓN DEL PROCESO DOCENTE", 
+                                                            "open":false
+                                                        },
+                                                        {
+                                                            "level": 3, 
+                                                            "disabled": false, 
+                                                            "selected": false, 
+                                                            "men_path": "/multimedia", 
+                                                            "men_icono": "user", 
+                                                            "men_titulo": "4.1.4 INDICADOR ASIGNATURAS CON COBERTURA BIBLIOGRÁFICA ADECUADA", 
+                                                            "open":false
+                                                        },
+                                                        {
+                                                            "level": 3, 
+                                                            "disabled": false, 
+                                                            "selected": false, 
+                                                            "men_path": "/multimedia", 
+                                                            "men_icono": "user", 
+                                                            "men_titulo": "4.1.5 INDICADOR PUBLICACIONES DOCENTES", 
+                                                            "open":false
+                                                        },
+                                                        {
+                                                            "level": 3, 
+                                                            "disabled": false, 
+                                                            "selected": false, 
+                                                            "men_path": "/multimedia", 
+                                                            "men_icono": "user", 
+                                                            "men_titulo": "4.1.6 INDICADOR AULAS", 
+                                                            "open":false
+                                                        },
+                                                        {
+                                                            "level": 3, 
+                                                            "disabled": false, 
+                                                            "selected": false, 
+                                                            "men_path": "/multimedia", 
+                                                            "men_icono": "user", 
+                                                            "men_titulo": "4.1.7 INDICADOR FORMACIÓN COMPLEMENTARIA", 
+                                                            "open":false
+                                                        },
+                                                        {
+                                                            "level": 3, 
+                                                            "disabled": false, 
+                                                            "selected": false, 
+                                                            "men_path": "/multimedia", 
+                                                            "men_icono": "user", 
+                                                            "men_titulo": "4.1.8 INDICADOR ACOMPAÑAMIENTO PEDAGÓGICO A ESTUDIANTES", 
+                                                            "open":false
+                                                        },
+                                                        {
+                                                            "level": 3, 
+                                                            "disabled": false, 
+                                                            "selected": false, 
+                                                            "men_path": "/multimedia", 
+                                                            "men_icono": "user", 
+                                                            "men_titulo": "4.1.9 INDICADOR RELACIÓN CON LOS GRADUADOS", 
+                                                            "open":false
+                                                        }
+
+                                                    ]
+                            },
+                            {
+                                "level": 2, 
+                                "disabled": false, 
+                                "selected": false, 
+                                "men_path": "/multimedia", 
+                                "men_icono": "user", 
+                                "men_titulo": "4.2 SUBCRITERIO INFORMATIZACIÓN DEL PROCESO DE ENSEÑANZA", 
+                                "open":false,
+                                "menusHijos":   [
+                                                    {
+                                                        "level": 3, 
+                                                        "disabled": false, 
+                                                        "selected": false, 
+                                                        "men_path": "/multimedia", 
+                                                        "men_icono": "user", 
+                                                        "men_titulo": "4.2.1 INDICADOR ENTORNO VIRTUAL DE APRENDIZAJE", 
+                                                        "open":false
+                                                    },
+                                                    {
+                                                        "level": 3, 
+                                                        "disabled": false, 
+                                                        "selected": false, 
+                                                        "men_path": "/multimedia", 
+                                                        "men_icono": "user", 
+                                                        "men_titulo": "4.2.2 INDICADOR INFORMATIZACIÓN EN EL APRENDIZAJE", 
+                                                        "open":false
+                                                    }
+                                                ]
+                            },
+                            {
+                                "level": 2, 
+                                "disabled": false, 
+                                "selected": false, 
+                                "men_path": "/multimedia", 
+                                "men_icono": "user", 
+                                "men_titulo": "4.3 SUBCRITERIO FORMACIÓN CIUDADANA", 
+                                "open":false,
+                                "menusHijos":   [
+                                                    {
+                                                        "level": 3, 
+                                                        "disabled": false, 
+                                                        "selected": false, 
+                                                        "men_path": "/multimedia", 
+                                                        "men_icono": "user", 
+                                                        "men_titulo": "4.3.1 INDICADOR EDUCACIÓN AMBIENTAL Y DESARROLLO SOSTENIBLE", 
+                                                        "open":false
+                                                    },
+                                                    {
+                                                        "level": 3, 
+                                                        "disabled": false, 
+                                                        "selected": false, 
+                                                        "men_path": "/multimedia", 
+                                                        "men_icono": "user", 
+                                                        "men_titulo": "4.3.2 INDICADOR FORMACIÓN EN VALORES Y DESARROLLO  DE HABILIDADES BLANDAS", 
+                                                        "open":false
+                                                    }
+                                                ]
+                            },
+                            {
+                                "level": 2, 
+                                "disabled": false, 
+                                "selected": false, 
+                                "men_path": "/multimedia", 
+                                "men_icono": "user", 
+                                "men_titulo": "4.4 SUBCRITERIO FORMACIÓN PRÁCTICA", 
+                                "open":false,
+                                "menusHijos":   [
+                                                    {
+                                                        "level": 3, 
+                                                        "disabled": false, 
+                                                        "selected": false, 
+                                                        "men_path": "/multimedia", 
+                                                        "men_icono": "user", 
+                                                        "men_titulo": "4.4.1 INDICADOR FORMACIÓN PRÁCTICA EN EL ENTORNO ACADÉMICO", 
+                                                        "open":false
+                                                    },
+                                                    {
+                                                        "level": 3, 
+                                                        "disabled": false, 
+                                                        "selected": false, 
+                                                        "men_path": "/multimedia", 
+                                                        "men_icono": "user", 
+                                                        "men_titulo": "4.4.2 INDICADOR FORMACIÓN PRÁCTICA EN EL ENTORNO LABORAL REAL", 
+                                                        "open":false
+                                                    }
+                                                ]
+                            },
+                            {
+                                "level": 2, 
+                                "disabled": false, 
+                                "selected": false, 
+                                "men_path": "/multimedia", 
+                                "men_icono": "user", 
+                                "men_titulo": "4.5 SUBCRITERIO BIBLIOTECA", 
+                                "open":false,
+                                "menusHijos":   [
+                                                    {
+                                                        "level": 3, 
+                                                        "disabled": false, 
+                                                        "selected": false, 
+                                                        "men_path": "/multimedia", 
+                                                        "men_icono": "user", 
+                                                        "men_titulo": "4.5.1 INDICADOR FUNCIONAMIENTO DE LA BIBLIOTECA", 
+                                                        "open":false
+                                                    },
+                                                    {
+                                                        "level": 3, 
+                                                        "disabled": false, 
+                                                        "selected": false, 
+                                                        "men_path": "/multimedia", 
+                                                        "men_icono": "user", 
+                                                        "men_titulo": "4.5.2 INDICADOR ACERVO DE LA BIBLIOTECA Y RELACIÓN DE LA BIBLIOTECA CON LAS ASIGNATURAS Y CARRERAS", 
+                                                        "open":false
+                                                    }
+                                                ]
+                            }
+                        ]
+    },
+    {
+        "level": 1, 
+        "disabled": false, 
+        "selected": false, 
+        "men_path": "/multimedia", 
+        "men_icono": "user", 
+        "men_titulo": "5. CRITERIO INVESTIGACIÓN + DESARROLLO E INNOVACIÓN", 
+        "menusHijos":   [
+                            {
+                                    "level": 2, 
+                                    "disabled": false, 
+                                    "selected": false, 
+                                    "men_path": "/multimedia", 
+                                    "men_icono": "user", 
+                                    "men_titulo": "5.1 SUBCRITERIO I+D Y PUBLICACIONES CIENTÍFICAS Y TÉCNICAS", 
+                                    "open":false,
+                                    "menusHijos":   [
+                                                        {
+                                                            "level": 3, 
+                                                            "disabled": false, 
+                                                            "selected": false, 
+                                                            "men_path": "/multimedia", 
+                                                            "men_icono": "user", 
+                                                            "men_titulo": "5.1.1 INDICADOR INVESTIGACIÓN Y DESARROLLO", 
+                                                            "open":false
+                                                        },
+                                                        {
+                                                            "level": 3, 
+                                                            "disabled": false, 
+                                                            "selected": false, 
+                                                            "men_path": "/multimedia", 
+                                                            "men_icono": "user", 
+                                                            "men_titulo": "5.1.2 INDICADOR PUBLICACIONES Y EVENTOS CIENTÍFICOS Y TÉCNICOS", 
+                                                            "open":false
+                                                        }
+                                                    ]
+                            },
+                            {
+                                "level": 2, 
+                                "disabled": false, 
+                                "selected": false, 
+                                "men_path": "/multimedia", 
+                                "men_icono": "user", 
+                                "men_titulo": "5.2 SUBCRITERIO INNOVACIÓN", 
+                                "open":false,
+                                "menusHijos":   [
+                                                    {
+                                                        "level": 3, 
+                                                        "disabled": false, 
+                                                        "selected": false, 
+                                                        "men_path": "/multimedia", 
+                                                        "men_icono": "user", 
+                                                        "men_titulo": "5.2.1 INDICADOR INNOVACIÓN Y CAPACIDAD DE ABSORCIÓN", 
+                                                        "open":false
+                                                    }
+                                                ]
+                            }
+                        ]
+    },
+    {
+        "level": 1, 
+        "disabled": false, 
+        "selected": false, 
+        "men_path": "/multimedia", 
+        "men_icono": "user", 
+        "men_titulo": "6. CRITERIO VINCULACIÓN CON LA SOCIEDAD", 
+        "menusHijos":   [
+                            {
+                                    "level": 2, 
+                                    "disabled": false, 
+                                    "selected": false, 
+                                    "men_path": "/multimedia", 
+                                    "men_icono": "user", 
+                                    "men_titulo": "6.1 SUBCRITERIO PLANIFICACIÓN Y EJECUCIÓN DE LA VINCULACIÓN", 
+                                    "open":false,
+                                    "menusHijos":   [
+                                                        {
+                                                            "level": 3, 
+                                                            "disabled": false, 
+                                                            "selected": false, 
+                                                            "men_path": "/multimedia", 
+                                                            "men_icono": "user", 
+                                                            "men_titulo": "6.1.1 INDICADOR PLANIFICACIÓN Y EJECUCIÓN DE VINCULACIÓN CON LA SOCIEDAD", 
+                                                            "open":false
+                                                        }
+                                                    ]
+                            },
+                            {
+                                "level": 2, 
+                                "disabled": false, 
+                                "selected": false, 
+                                "men_path": "/multimedia", 
+                                "men_icono": "user", 
+                                "men_titulo": "6.2 SUBCRITERIO PRESENCIA EN LA COMUNIDAD", 
+                                "open":false,
+                                "menusHijos":   [
+                                                    {
+                                                        "level": 3, 
+                                                        "disabled": false, 
+                                                        "selected": false, 
+                                                        "men_path": "/multimedia", 
+                                                        "men_icono": "user", 
+                                                        "men_titulo": "6.2.1 INDICADOR PRESENCIA DE LA INSTITUCIÓN EN LA COMUNIDAD", 
+                                                        "open":false
+                                                    }
+                                                ]
+                            }
+                        ]
+    }
+]

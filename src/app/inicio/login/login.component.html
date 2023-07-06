@@ -1,0 +1,157 @@
+<div>
+
+  <div class="wrapper">
+    <div class="one">
+
+      <nz-carousel nzAutoPlay>
+        <div nz-carousel-content *ngFor="let index of array">
+         <img [src]="index.img" class="fotosmotos"> 
+        
+        </div>
+      </nz-carousel>
+     
+    </div>
+    <div class="two">
+     
+      <ng-container *ngIf="tipoIngreso == 0">
+        <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+          
+          <nz-form-item>
+
+            <div class="textoLogin">
+              <div class="text1">
+                <p style="font-size: 30px;">Iniciar sesión</p>
+              </div>
+              <div class="text2">
+                <div class="text2-item1">
+                  <p>¿Aún no tienes una cuenta?</p>
+           
+                </div>
+                <div class="text2-item2">
+                  <a (click)="irRegistro()">Registrarse</a> 
+                </div>
+               
+              </div>
+              <div class="text3">
+                <p>Dirección de correo electronico:</p>
+           
+              </div>
+
+              <div class="text4">
+                <p>prueba@gmail.com</p>
+           
+              </div>
+
+              <div class="text5">
+                <button (click)="loginGoogle()" class="loginBtn loginBtn--google">
+                  Continuar con Google
+                </button>
+              </div>
+
+              <div class="text6">
+
+                <button class="loginBtn loginBtn--facebook">
+                  Continuar con Facebook
+                </button>
+
+              </div>
+              
+            </div>
+
+
+           
+          </nz-form-item>
+          <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" >Iniciar Sesión</button>     
+
+        </form>
+  
+      </ng-container> 
+      
+      <ng-container *ngIf="tipoIngreso == 1">
+
+        <form nz-form [formGroup]="registerForm" class="login-form" (ngSubmit)="registrarse()">
+          
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Por favor ingrese un Correo Electronico!">
+              <nz-input-group nzPrefixIcon="user">
+                <input type="text" nz-input formControlName="email" placeholder="Email" />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Por favor ingrese su contraseña!">
+              <nz-input-group nzPrefixIcon="lock">
+                <input type="password" nz-input formControlName="password" placeholder="Password" />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Por favor ingrese un Nombre!">
+              <nz-input-group nzPrefixIcon="user">
+                <input type="text" nz-input formControlName="name" placeholder="Nombre" />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Por favor ingrese un Apellido">
+              <nz-input-group nzPrefixIcon="user">
+                <input type="text" nz-input formControlName="lastname" placeholder="Apellido" />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Por favor ingrese un Telefono!">
+              <nz-input-group nzPrefixIcon="user">
+                <input type="number" nz-input formControlName="phone" placeholder="Telefono" />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+        
+          <button [nzLoading]="cargando" nz-button class="login-form-button login-form-margin" [nzType]="'primary'" >Crear Usuario</button>   
+          
+          <button (click)="regresar()" class="login-form-button login-form-margin" nz-button nzType="dashed">
+            <span nz-icon nzType="left"></span>
+            Regresar
+          </button>
+            
+        </form>
+  
+
+      </ng-container>
+
+      <ng-container *ngIf="tipoIngreso == 2">
+
+        <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="loginIn()">
+          
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Por favor ingrese su nombre de usuario!">
+              <nz-input-group nzPrefixIcon="user">
+                <input type="text" nz-input formControlName="userName" placeholder="Username" />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Por favor ingrese su contraseña!">
+              <nz-input-group nzPrefixIcon="lock">
+                <input type="password" nz-input formControlName="passwordUser" placeholder="Password" />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+        
+          <button [nzLoading]="cargando" nz-button class="login-form-button login-form-margin" [nzType]="'primary'" >Iniciar Sesión</button>   
+          <button (click)="regresar()" class="login-form-button login-form-margin" nz-button nzType="dashed">
+            <span nz-icon nzType="left"></span>
+            Regresar
+          </button>
+        </form>
+  
+
+      </ng-container>
+
+    </div>
+  </div>
+
+

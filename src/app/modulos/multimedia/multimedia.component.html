@@ -1,0 +1,28 @@
+
+
+
+
+
+
+<nz-form-item style="text-align: center;">
+    <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>Foto</nz-form-label>
+    
+    <nz-upload nzType="drag" [nzMultiple]="true" [(nzFileList)]="fileList" [nzBeforeUpload]="beforeUpload">
+        <p class="ant-upload-drag-icon">
+          <i nz-icon nzType="inbox"></i>
+        </p>
+        <p class="ant-upload-text">Adjuntar archivos</p>
+        <p class="ant-upload-hint">
+          Click o arrastrar archivos para cargarlos
+        </p>
+    </nz-upload>
+    <br>
+    <div style="text-align: center;">
+        <img nz-image width="120px" nzSrc={{picture}} alt="" />
+    </div>
+   
+    <br>
+    
+
+</nz-form-item>
+
