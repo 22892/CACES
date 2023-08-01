@@ -1,0 +1,250 @@
+
+
+<nz-tabset  style="padding-left: 50px; padding-right: 50px" [(nzSelectedIndex)]="index"  nzSize="large">
+    <nz-tab *ngFor="let tab of tabs" [nzTitle]="titleTemplate">
+        <ng-template #titleTemplate>
+            <i nz-icon [nzType]="tab.icon"></i>
+            {{ tab.name }}
+        </ng-template>
+
+        <nz-card>
+
+            <div class="steps-content">
+
+                <div *ngIf="index == 0">
+
+
+                    <nz-row style="margin-bottom: 10px;">
+                        <nz-col nzSpan="24">
+                            <button nz-button nzType="dashed" nzShape="round" (click)="openModalCriterio()">
+                                <i nz-icon nzType="plus"></i>Nuevo Criterio
+                            </button>
+          
+                        </nz-col>
+                    </nz-row>
+
+                    <nz-row>
+                        <nz-col nzSpan="24">
+
+                            <nz-empty *ngIf="listCriterio.length <= 0" nzNotFoundImage="simple" nzNotFoundContent="NO TIENE CRITERIOS CREADOS"></nz-empty> 
+                            <nz-table  #filterTable  [nzData]="listCriterio" nzTableLayout="fixed" [nzLoading]="cargandoMatriz">
+                                <thead *ngIf="listCriterio.length > 0">
+                                <tr>
+                                    <th 
+                                    *ngFor="let column of listOfColumns"
+                                    [nzSortOrder]="column.sortOrder"
+                                    [nzSortFn]="column.sortFn"
+                                    [nzSortDirections]="column.sortDirections"
+                                    [nzFilterMultiple]="column.filterMultiple"
+                                    [nzFilters]="column.listOfFilter"
+                                    [nzFilterFn]="column.filterFn"
+                                    [nzShowFilter]="column.filterFn ? true : false"
+                                    [nzWidth]="column.width ? column.width : null"
+                                    style="text-align: center; background-color: black; color: white; font-size: 13px;"
+                                    >
+                                    {{ column.name }}
+                                    </th>
+                                </tr>
+                                </thead>
+                            
+                                <tbody *ngIf="listCriterio.length > 0">
+                                    <tr *ngFor="let item of filterTable.data ; let $indexTable = index" style="font-size: 12px; text-align: center;">
+                            
+                                        <td style="text-align: center;">
+                                            <small>
+                                                {{item.codigo_criterio}}
+                                            </small>
+                                        </td>
+                            
+                                        <td style="text-align: center;">
+                                            <small>
+                                                {{item.criterio_descripcion}}
+                                            </small>
+                                        </td>
+
+                                        <td>
+                                            <nz-avatar [nzIcon]="'plus'" (click)="openModalSubcriterio(item)" style="background:white;border: solid 1px #1827ff; color:#1827ff" [nzTooltipTitle]="'AGREGAR SUBCRITERIO'" nzTooltipPlacement="top" nz-tooltip></nz-avatar>
+                            
+                                        </td>
+
+                                    
+                                        <td>
+                                            <nz-avatar [nzIcon]="'close'" nz-popconfirm nzPopconfirmTitle="ESTA SEGURO DE ELIMINAR CRITERIO: {{item.criterio_descripcion}}" nzPopconfirmPlacement="topLeft"  (nzOnConfirm)="eliminarCriterio(item)" (nzOnCancel)="cancel()" style="background:white;border: solid 1px #ff1818; color:#ff1818" [nzTooltipTitle]="'ELIMINAR'" nzTooltipPlacement="top" nz-tooltip></nz-avatar>
+                            
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </nz-table>
+
+                        </nz-col>
+                    </nz-row>
+
+
+                </div>
+
+
+
+                <div *ngIf="index == 1">
+
+
+                    <nz-empty *ngIf="listSubCriterio.length <= 0" nzNotFoundImage="simple" nzNotFoundContent="NO TIENE SUB CRITERIOS CREADOS"></nz-empty> 
+                    <nz-table  #filterTable  [nzData]="listSubCriterio" nzTableLayout="fixed" [nzLoading]="cargandoMatriz">
+                        <thead *ngIf="listSubCriterio.length > 0">
+                        <tr>
+                            <th 
+                            *ngFor="let column of listOfColumnsSubcriterio"
+                            [nzSortOrder]="column.sortOrder"
+                            [nzSortFn]="column.sortFn"
+                            [nzSortDirections]="column.sortDirections"
+                            [nzFilterMultiple]="column.filterMultiple"
+                            [nzFilters]="column.listOfFilter"
+                            [nzFilterFn]="column.filterFn"
+                            [nzShowFilter]="column.filterFn ? true : false"
+                            [nzWidth]="column.width ? column.width : null"
+                            style="text-align: center; background-color: black; color: white; font-size: 13px;"
+                            >
+                            {{ column.name }}
+                            </th>
+                        </tr>
+                        </thead>
+                    
+                        <tbody *ngIf="listSubCriterio.length > 0">
+                            <tr *ngFor="let item of filterTable.data ; let $indexTable = index" style="font-size: 12px; text-align: center;">
+                    
+                                <td style="text-align: center;">
+                                    <small>
+                                        {{item.codigo_subcriterio}}
+                                    </small>
+                                </td>
+
+                                <td style="text-align: center;">
+                                    <small>
+                                        {{item.criterio_descripcion}}
+                                    </small>
+                                </td>
+                    
+                                <td style="text-align: center;">
+                                    <small>
+                                        {{item.subcriterio_descripcion}}
+                                    </small>
+                                </td>
+
+                                <td>
+                                    <nz-avatar [nzIcon]="'plus'" (click)="openModalIndicador(item)" style="background:white;border: solid 1px #1827ff; color:#1827ff" [nzTooltipTitle]="'AGREGAR INDICADOR'" nzTooltipPlacement="top" nz-tooltip></nz-avatar>
+                    
+                                </td>
+
+                            
+                                <td>
+                                    <nz-avatar [nzIcon]="'close'" nz-popconfirm nzPopconfirmTitle="ESTA SEGURO DE ELIMINAR SUB CRITERIO: {{item.subcriterio_descripcion}}" nzPopconfirmPlacement="topLeft"  (nzOnConfirm)="eliminarSubCriterio(item)" (nzOnCancel)="cancel()" style="background:white;border: solid 1px #ff1818; color:#ff1818" [nzTooltipTitle]="'ELIMINAR'" nzTooltipPlacement="top" nz-tooltip></nz-avatar>
+                    
+                                </td>
+                            </tr>
+                        </tbody>
+                    </nz-table>
+                    
+                </div>
+
+                <div *ngIf="index == 2">
+
+                    <nz-empty *ngIf="listIndicador.length <= 0" nzNotFoundImage="simple" nzNotFoundContent="NO TIENE INDICADORES CREADOS"></nz-empty> 
+                    <nz-table  #filterTable  [nzData]="listIndicador" nzTableLayout="fixed" [nzLoading]="cargandoMatriz">
+                        <thead *ngIf="listIndicador.length > 0">
+                        <tr>
+                            <th 
+                            *ngFor="let column of listOfColumnsIndocador"
+                            [nzSortOrder]="column.sortOrder"
+                            [nzSortFn]="column.sortFn"
+                            [nzSortDirections]="column.sortDirections"
+                            [nzFilterMultiple]="column.filterMultiple"
+                            [nzFilters]="column.listOfFilter"
+                            [nzFilterFn]="column.filterFn"
+                            [nzShowFilter]="column.filterFn ? true : false"
+                            [nzWidth]="column.width ? column.width : null"
+                            style="text-align: center; background-color: black; color: white; font-size: 13px;"
+                            >
+                            {{ column.name }}
+                            </th>
+                        </tr>
+                        </thead>
+                    
+                        <tbody *ngIf="listIndicador.length > 0">
+                            <tr *ngFor="let item of filterTable.data ; let $indexTable = index" style="font-size: 12px; text-align: center;">
+                    
+                                <td style="text-align: center;">
+                                    <small>
+                                        {{item.codigo_indicador}}
+                                    </small>
+                                </td>
+
+                                <td style="text-align: center;">
+                                    <small>
+                                        {{item.criterio_descripcion}}
+                                    </small>
+                                </td>
+                    
+                                <td style="text-align: center;">
+                                    <small>
+                                        {{item.subcriterio_descripcion}}
+                                    </small>
+                                </td>
+
+                                <td style="text-align: center;">
+                                    <small>
+                                        {{item.indicador_descripcion}}
+                                    </small>
+                                </td>
+
+                            
+                                <td>
+                                    <nz-avatar [nzIcon]="'close'" nz-popconfirm nzPopconfirmTitle="ESTA SEGURO DE ELIMINAR INDICADOR {{item.indicador_descripcion}}" nzPopconfirmPlacement="topLeft"  (nzOnConfirm)="eliminarIndicador(item)" (nzOnCancel)="cancel()" style="background:white;border: solid 1px #ff1818; color:#ff1818" [nzTooltipTitle]="'ELIMINAR'" nzTooltipPlacement="top" nz-tooltip></nz-avatar>
+                    
+                                </td>
+                            </tr>
+                        </tbody>
+                    </nz-table>
+
+
+                </div>
+            </div>
+        </nz-card>
+    </nz-tab>
+</nz-tabset>
+
+
+
+
+
+
+
+
+<nz-modal nzWrapClassName="vertical-center-modal" nzWidth="500px" [(nzVisible)]="modalMatriz"
+    nzTitle="{{tituloMatriz}}" (nzOnCancel)="modalMatriz = false" (nzOnOk)="crearCriterio()" [nzOkLoading]="loadinCrear">
+
+    <ng-template nzModalContent class="steps-content">
+
+        <div class="steps-content_modal">
+            <nz-row>
+                <nz-col nzSpan="24">
+
+                    <ng-container *ngIf="tipoMatriz == 1">
+                        <input nz-input placeholder="Agrege un Criterio" [(ngModel)]="value_criterio" />
+
+                    </ng-container>
+
+                    <ng-container *ngIf="tipoMatriz == 2">
+                        <input nz-input placeholder="Agrege un Sub Criterio" [(ngModel)]="value_subcriterio" />
+
+                    </ng-container>
+
+                    <ng-container *ngIf="tipoMatriz == 3">
+                        <input nz-input placeholder="Agrege Indicador" [(ngModel)]="value_indicador" />
+
+                    </ng-container>
+
+                </nz-col>
+            </nz-row>
+
+        </div>
+    </ng-template>
+</nz-modal>

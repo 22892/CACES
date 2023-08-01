@@ -20,14 +20,15 @@ import { PrincipalComponent } from './principal.component';
 import { SidebarComponent } from '../sidebar/sidebar.component'
 
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard'
+import { GestionGuard } from 'src/app/guards/gestion.guard';
+import { AccesoGuard } from 'src/app/guards/acceso.guard';
 
 const routes: Routes = [
-  {path:'', component: PrincipalComponent, children:[
+  {path:'', component: PrincipalComponent, ...canActivate(() => redirectUnauthorizedTo(['/'])), children:[
+
+    {path:'multimedia',loadChildren:() => import('../../modulos/multimedia/multimedia.module').then(m => m.MultimediaModule), canActivate: [AccesoGuard]},
+    {path:'gestion',loadChildren:() => import('../../modulos/gestion/gestion.module').then(m => m.GestionModule), canActivate: [GestionGuard]},
     
-    {path:'multimedia',loadChildren:() => import('../../modulos/multimedia/multimedia.module').then(m => m.MultimediaModule), ...canActivate(() => redirectUnauthorizedTo(['/']))},
-    
-    //{path:'pedidos',loadChildren:() => import('../../appModules/pedidos/pedidos.module').then(m => m.PedidosModule)},
-  
   ]},
 
 ];

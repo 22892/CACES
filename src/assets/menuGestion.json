@@ -1,0 +1,19 @@
+[
+    {
+        "level": 1, 
+        "disabled": false, 
+        "selected": true, 
+        "men_path": "gestion/tareas", 
+        "men_icono": "user", 
+        "men_titulo": "GESTIÓN TAREAS" 
+    },
+    {
+        "level": 1, 
+        "disabled": false, 
+        "selected": false, 
+        "men_path": "gestion/usuarios", 
+        "men_icono": "user", 
+        "men_titulo": "GESTIÓN USUARIOS" 
+    }
+
+]

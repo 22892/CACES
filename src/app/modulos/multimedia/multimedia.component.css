@@ -1,0 +1,33 @@
+.imagenFondo{
+    box-shadow: 10px 10px 100px rgba(0, 0, 0, 0.453);
+    object-fit:contain;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  
+.mensaje{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.steps-content {
+    margin-top: 16px;
+    border-radius: 6px;
+    background-color: #f4f4f4;
+    min-height: 300px;
+    padding-top: 24px;
+    padding-right: 24px;
+    padding-left: 24px;
+    padding-bottom: 24px;
+}
+
+.demo-infinite-container {
+    height: 330px;
+    border: 2px solid #cecece;
+    border-radius: 20px;
+    
+  }
+  

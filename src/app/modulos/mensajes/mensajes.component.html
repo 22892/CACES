@@ -1,0 +1,205 @@
+<nz-page-header class="site-page-header" nzBackIcon nzTitle="MENSAJES" [nzSubtitle]="subtitle">
+    <ng-template #subtitle>
+      <i nz-icon nzType="notification" nzTheme="outline" id="clientesicon"></i>
+      <button nz-button nzType="dashed" nzShape="round" (click)="openModalMensaje()">
+        <i nz-icon nzType="plus"></i> Nuevo Mensaje
+      </button>
+    </ng-template>
+    <nz-page-header-extra>
+      <nz-space>
+        <div  *nzSpaceItem>
+          <nz-input-group [nzSuffix]="suffixIconSearch">
+            <input type="text" [(ngModel)]="buscarMensaje" nz-input placeholder="Buscar Mensaje"
+              (ngModelChange)="filtroBuscarMensaje()" (keyup.enter)="filtroBuscarMensaje()" />
+          </nz-input-group>
+          <ng-template #suffixIconSearch>
+            <i (click)="filtroBuscarMensaje()" nz-icon nzType="search"></i>
+          </ng-template>
+        </div>
+      </nz-space>
+    </nz-page-header-extra>
+</nz-page-header>
+
+<div class="steps-content">
+
+    <div class="contenedorFiltro">
+        <div class="todos">
+            <label nz-checkbox [(ngModel)]="todos" (ngModelChange)="filtroMensajes(1)">TODOS</label> 
+        </div>
+    
+        <div class="enviados">
+            <label nz-checkbox [(ngModel)]="enviados" (ngModelChange)="filtroMensajes(2)">ENVIADOS</label> 
+        </div>
+    
+        <div class="recibidos">
+            <label nz-checkbox [(ngModel)]="recibidos" (ngModelChange)="filtroMensajes(3)">RECIBIDOS</label> 
+
+        </div>
+
+        <div class="espacio">
+
+        </div>
+    
+    </div>
+    <br>
+    <cdk-virtual-scroll-viewport itemSize="3" class="demo-infinite-container">
+        <nz-list nzItemLayout="horizontal" [nzLoading]="cargandoMensajes" [nzDataSource]="listaMensajes" [nzRenderItem]="item" >
+           
+            <ng-template #item let-item>
+                
+
+                <div class="contenedorPrincipal">
+
+                    <div class="contenedorMensaje">
+
+                        <div class="contenedorImagen">
+                            <div class="imagen">
+                                <img src="../../assets/mensaje.png" alt="" class="user-image mr-1 p-2">
+                            </div>
+                        </div>
+
+                        <div class="contenedorDetalle">
+
+                            <div class="usuarioMensaje">
+                                <p>{{item.usuario.nombre}} {{item.usuario.apellido}}</p>
+                            </div>
+
+                            <div class="mensajeTexto">
+                                <p>{{item.msj}}............</p> 
+                                
+                                <ng-container *ngIf="item.tipo == 'Enviado'">
+
+                                    <a nz-popover
+                                    (click)="leerMensaje(item)"
+                                    nzPopoverTitle="MENSAJE"
+                                    [nzPopoverContent]="contentTemplate"
+                                    nzAvatar="../../assets/mensaje.png"
+                                    nzDescription="dewscripcion"
+                                    nzPopoverTrigger="click">{{item.texto}}
+                                    </a>
+                                    <ng-template #contentTemplate>
+                                        <nz-tag [nzColor]="'magenta'">{{item.mensaje}}</nz-tag>
+                                    </ng-template>
+                                </ng-container>
+
+                                <ng-container *ngIf="item.tipo == 'Recibido'">
+
+                                    <ng-container *ngIf="item.estado == false; else noLeido">
+
+                                        <a nz-popover
+                                            (click)="leerMensaje(item)"
+                                            nzPopoverTitle="MENSAJE"
+                                            [nzPopoverContent]="contentTemplate"
+                                            nzAvatar="../../assets/mensaje.png"
+                                            nzDescription="dewscripcion"
+                                            nzPopoverTrigger="click">{{item.texto}}
+                                            </a>
+                                        <ng-template #contentTemplate>
+                                            <nz-tag [nzColor]="'magenta'">{{item.mensaje}}</nz-tag>
+                                        </ng-template>
+                                        
+                                    </ng-container>
+    
+                                    <ng-template #noLeido>
+    
+                                        <div nz-popover
+                                            style="color: brown;"
+                                            nzPopoverTitle="MENSAJE"
+                                            [nzPopoverContent]="contentTemplate"
+                                            nzAvatar="../../assets/mensaje.png"
+                                            nzDescription="dewscripcion"
+                                            nzPopoverTrigger="click">Mensaje Leido
+                                        </div>
+                                        <ng-template #contentTemplate>
+                                            <nz-tag [nzColor]="'magenta'">{{item.mensaje}}</nz-tag>
+                                        </ng-template>
+    
+                                    </ng-template>
+    
+
+                                </ng-container>
+                                
+                                
+                                   
+                            </div>
+                           
+                        </div>
+
+                        <div class="contenedorAcciones">
+
+                            <div class="fecha">
+                                <p>{{item.fechaNueva}}</p>
+                            </div>
+
+                            <div class="hora">
+                                <p>{{item.hora}}</p>
+                            </div>
+
+                            <div class="botonAccion">
+                                <span nz-icon [matMenuTriggerFor]="opcionboton" nzType="more" nzTheme="outline"></span>
+                                <mat-menu #opcionboton="matMenu">
+                                    <button mat-menu-item (click)="eliminarMensaje(item)">
+                                        <mat-icon>delete_forever</mat-icon>
+                                        Eliminar
+                                    </button>
+                                </mat-menu>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </ng-template>
+                        
+
+        </nz-list>
+    </cdk-virtual-scroll-viewport>
+
+ 
+</div>
+
+
+<nz-modal nzWrapClassName="vertical-center-modal" nzWidth="500px" [(nzVisible)]="modalMensaje" [nzOkLoading]="loadingMensaje"
+    nzTitle="ENVIAR MENSAJE" (nzOnCancel)="modalMensaje = false" (nzOnOk)="enviarMensaje()">
+
+    <ng-template nzModalContent class="steps-content">
+
+        <div class="steps-content_modal">
+
+           
+            <nz-row>
+                <nz-col nzSpan="24">
+
+
+                    <form nz-form [formGroup]="form" nzLayout="vertical">
+
+                        <nz-form-item>
+                            <nz-form-control nzErrorTip="SELECCIONE DESTINATARIO">
+                                <nz-select name="select-error" formControlName="receptor" nzPlaceHolder="SELECCIONE DESTINATARIO" >
+                                    
+                                    <nz-option *ngFor="let user of listUser" [nzValue]="user" [nzLabel]="user.nombre+'  '+user.apellido"></nz-option>
+                                </nz-select>
+    
+                            </nz-form-control>
+    
+                        </nz-form-item>
+
+                        <nz-form-item>
+                          <nz-form-control nzErrorTip="MENSAJE SOLO PUEDE CONTENER HASTA 100 LETRAS">
+                            <nz-textarea-count [nzMaxCharacterCount]="100">
+                              <textarea placeholder="ESCRIBIR NUEVO MENSAJE....." rows="4" formControlName="comment" nz-input></textarea>
+                            </nz-textarea-count>
+                          </nz-form-control>
+                        </nz-form-item>
+
+                    </form>
+                  
+
+                </nz-col>
+            </nz-row>
+
+        </div>
+    </ng-template>
+</nz-modal>

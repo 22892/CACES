@@ -25,7 +25,8 @@ export class LoginComponent implements OnInit {
   isLoadingContasena: boolean = false
   typeFormRecover: number = 0
 
-  tipoIngreso: number = 0
+  tipoIngreso: number = 2
+  usuarioLogeado: any
 
   constructor(private fb: UntypedFormBuilder, 
     private router: Router,
@@ -103,7 +104,6 @@ export class LoginComponent implements OnInit {
 
 
     }).catch(error =>{
-      console.log(error.code)
       this.msg.error('HA OCURRIDO UN ERROR '+error.message)
      
     })
@@ -117,12 +117,38 @@ export class LoginComponent implements OnInit {
 
     this.loginService.login(this.validateForm.value).then(response =>{
 
-      this.router.navigate(['/multimedia'])
+      console.log('LoGIN')
+      console.log(response.user)
+      localStorage.setItem('indicador', JSON.stringify({codigo_indicador: ''}));
+
 
       this.loginService.obtenerDatosUsuario(response.user.uid).then(async res =>{
 
-        localStorage.setItem('usuario', JSON.stringify(await res.data()));
-        this.loginService.updateLogaut.next(true);
+
+        if(res.data()){
+
+          this.usuarioLogeado = res.data()
+    
+          if(this.usuarioLogeado.tipo === '1'){
+            console.log('entra gestion')
+            this.router.navigate(['/gestion/tareas'])
+    
+          }else{
+            this.router.navigate(['/multimedia'])
+            
+          }
+    
+
+          localStorage.setItem('usuario', JSON.stringify(await res.data()));
+
+   
+        }else{
+          this.msg.error('ERROR EN RECUPERAR DATOS DE USUARIO')
+          this.router.navigate(['/'])
+
+
+        }
+
        
       }).catch(err =>{
         this.msg.error('NO SE PUDO OBTENR DATOS USUARIO '+err.mensaje)
@@ -140,7 +166,6 @@ export class LoginComponent implements OnInit {
   }  
 
   loginGoogle(){
-   console.log('goole') 
   }
 
   createNotification(type: string, titulo:string,mensaje:string): void {

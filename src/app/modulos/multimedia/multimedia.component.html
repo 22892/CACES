@@ -1,28 +1,100 @@
 
+<div *ngIf="activaContenido == false" class="mensaje">
+
+  <nz-card nzHoverable style="width:750px" [nzCover]="coverTemplate">
+    <nz-card-meta style="text-align: center;" nzTitle="UNIDAD DE ASEGURAMIENTO INTERNO DE LA CALIDAD Y EVALUACIÓN INSTITUCIONAL" nzDescription="www.instagram.com"></nz-card-meta>
+  </nz-card>
+  <ng-template #coverTemplate>
+    <img alt="example" src="../../../assets/documento.jpg" class="imagenFondo" />
+  </ng-template>
+
+</div>
+
+<div *ngIf="activaContenido" class="contenido">
+
+  <nz-tabset  style="padding-left: 50px; padding-right: 50px" [(nzSelectedIndex)]="index"  nzSize="large">
+    <nz-tab *ngFor="let tab of tabs" [nzTitle]="titleTemplate">
+        <ng-template #titleTemplate>
+            <i nz-icon [nzType]="tab.icon"></i>
+            {{ tab.name }}
+        </ng-template>
+
+        <nz-card>
+
+          <div class="steps-content">
+
+            <div *ngIf="index == 0">
+
+              <nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+        
+                <nz-col style="display: flex; align-items: center; align-content: center;" nzSpan="7" class="gutter-row" >
+
+                  <nz-form-item style="text-align: center;">
+                    <nz-upload nzType="drag" [nzMultiple]="true" [(nzFileList)]="fileList" [nzBeforeUpload]="beforeUpload">
+                        <p class="ant-upload-drag-icon">
+                          <i nz-icon nzType="inbox"></i>
+                        </p>
+                        <p class="ant-upload-text">SELECCIONAR ARCHIVO</p>
+                        <p class="ant-upload-hint">
+                          AGREGAR ARCHIVO
+                        </p>
+                    </nz-upload>
+                    <br>
+                    <div style="text-align: center;">
+                        <img nz-image width="120px" nzSrc={{picture}} alt="" />
+                    </div>
+                  </nz-form-item>
+                </nz-col>
+
+                <nz-col nzSpan="17" class="gutter-row" >
+
+                  
+                  <cdk-virtual-scroll-viewport itemSize="3" class="demo-infinite-container">
+                    <nz-list nzItemLayout="horizontal" [nzLoading]="cargandoDoc">
+                        <nz-list-item *ngFor="let item of listFiles ; let $index = index" >
+                            <nz-list-item-meta 
+                          
+                            >
+                                <nz-list-item-meta-title >
+
+                                    <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }" >
+                                        <div style="text-align: end;" nz-col class="gutter-row" [nzSpan]="3">
+                                          <span nz-icon nzType="snippets" nzTheme="outline"></span>
+                                        </div>
+                                        <div nz-col class="gutter-row" [nzSpan]="18">
+                                            <a [href]="item.url" download
+                                                target="_blank" nz-button nzType="default" [nzSize]="size"
+                                                nzShape="round">
+                                                <i nz-icon nzType="download"></i>
+                                                {{ item.nombre }}
+                                            </a>
+                                        </div>
+                                        <div nz-col class="gutter-row" [nzSpan]="3">
+                                          <span nz-icon nzType="snippets" nzTheme="outline"></span>
+                                        </div>
+                                        
+                                    </div>
+                                </nz-list-item-meta-title>
+                            </nz-list-item-meta>    
+                        </nz-list-item>
+                        <nz-list-empty *ngIf="listFiles.length === 0"></nz-list-empty>
+                    </nz-list>
+                  </cdk-virtual-scroll-viewport>
+
+                </nz-col>
+
+              </nz-row>
+
+            </div>
+
+
+          </div>
+        </nz-card>
+    </nz-tab>
+  </nz-tabset>
+
+</div>
 
 
 
-
-
-<nz-form-item style="text-align: center;">
-    <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>Foto</nz-form-label>
-    
-    <nz-upload nzType="drag" [nzMultiple]="true" [(nzFileList)]="fileList" [nzBeforeUpload]="beforeUpload">
-        <p class="ant-upload-drag-icon">
-          <i nz-icon nzType="inbox"></i>
-        </p>
-        <p class="ant-upload-text">Adjuntar archivos</p>
-        <p class="ant-upload-hint">
-          Click o arrastrar archivos para cargarlos
-        </p>
-    </nz-upload>
-    <br>
-    <div style="text-align: center;">
-        <img nz-image width="120px" nzSrc={{picture}} alt="" />
-    </div>
-   
-    <br>
-    
-
-</nz-form-item>
 

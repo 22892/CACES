@@ -49,9 +49,10 @@ import { NzRateModule } from 'ng-zorro-antd/rate';
 import { NzSwitchModule } from 'ng-zorro-antd/switch';
 import { NzPopoverModule } from 'ng-zorro-antd/popover';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb'
-
+import { NzTreeModule } from 'ng-zorro-antd/tree'
 @NgModule({
     exports: [
+        NzTreeModule,
         NzBreadCrumbModule,
         NzPopoverModule,
         NzImageModule,

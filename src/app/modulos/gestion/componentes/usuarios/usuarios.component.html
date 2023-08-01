@@ -1,0 +1,382 @@
+
+<nz-page-header class="site-page-header" nzBackIcon nzTitle="USUARIOS" [nzSubtitle]="subtitle">
+    <ng-template #subtitle>
+      <i nz-icon nzType="user" nzTheme="outline" id="clientesicon"></i>
+      <button nz-button nzType="dashed" nzShape="round" (click)="openModalRegistro()">
+        <i nz-icon nzType="plus"></i> Nuevo Usuario
+      </button>
+    </ng-template>
+    <nz-page-header-extra>
+      <nz-space>
+        <div  *nzSpaceItem>
+          <nz-input-group [nzSuffix]="suffixIconSearch">
+            <input type="text" [(ngModel)]="buscarUsuario" nz-input placeholder="Buscar Usuario"
+              (ngModelChange)="filtroBuscarUsuario()" (keyup.enter)="filtroBuscarUsuario()" />
+          </nz-input-group>
+          <ng-template #suffixIconSearch>
+            <i (click)="filtroBuscarUsuario()" nz-icon nzType="search"></i>
+          </ng-template>
+        </div>
+      </nz-space>
+    </nz-page-header-extra>
+</nz-page-header>
+
+<div class="steps-content">
+
+    <nz-empty *ngIf="listUser.length <= 0" nzNotFoundImage="simple" nzNotFoundContent="NO TIENE USUARIOS CREADOS"></nz-empty> 
+    <nz-table  #filterTable  [nzData]="listUser" nzTableLayout="fixed" [nzLoading]="cargandoUsuario">
+        <thead *ngIf="listUser.length > 0">
+        <tr>
+            <th 
+            *ngFor="let column of listOfColumns"
+            [nzSortOrder]="column.sortOrder"
+            [nzSortFn]="column.sortFn"
+            [nzSortDirections]="column.sortDirections"
+            [nzFilterMultiple]="column.filterMultiple"
+            [nzFilters]="column.listOfFilter"
+            [nzFilterFn]="column.filterFn"
+            [nzShowFilter]="column.filterFn ? true : false"
+            [nzWidth]="column.width ? column.width : null"
+            style="text-align: center; background-color: black; color: white; font-size: 13px;"
+            >
+            {{ column.name }}
+            </th>
+        </tr>
+        </thead>
+    
+        <tbody *ngIf="listUser.length > 0">
+            <tr *ngFor="let item of filterTable.data ; let $indexTable = index" style="font-size: 12px; text-align: center;">
+    
+                <td style="text-align: center;">
+                    <small>
+                        {{item.email}}
+                    </small>
+                </td>
+    
+                <td style="text-align: center;">
+                    <small>
+                        {{item.nombre}}
+                    </small>
+                </td>
+
+                <td style="text-align: center;">
+                    <small>
+                        {{item.apellido}}
+                    </small>
+                </td>
+
+                <td style="text-align: center;">
+                    <small>
+                        {{item.telefono}}
+                    </small>
+                </td>
+
+                <td style="text-align: center;">
+                    <small>
+                        <ng-container *ngIf="item.tipo == '1'">
+                            <nz-tag [nzColor]="'red'">SUPER USUARIO</nz-tag>
+                            
+                        </ng-container>
+                        <ng-container *ngIf="item.tipo == '2'">
+                            <nz-tag [nzColor]="'blue'">ADMINISTRADOR</nz-tag>
+
+                            
+                        </ng-container>
+                        <ng-container *ngIf="item.tipo == '3'">
+                            <nz-tag [nzColor]="'green'">NORMAL</nz-tag>
+
+                            
+                        </ng-container>
+                       
+                    </small>
+                </td>
+
+
+                <td>
+                    <nz-avatar [nzIcon]="'close'" nz-popconfirm nzPopconfirmTitle="ESTA SEGURO DE ELIMINAR USUARIO {{item.nombre}} {{item.apellido}}" nzPopconfirmPlacement="topLeft"  (nzOnConfirm)="eliminarUsuario(item)" (nzOnCancel)="cancel()" style="background:white;border: solid 1px #ff1818; color:#ff1818" [nzTooltipTitle]="'ELIMINAR'" nzTooltipPlacement="top" nz-tooltip></nz-avatar>
+                    <nz-divider nzType="vertical"></nz-divider>
+                    <nz-avatar [nzIcon]="'plus'" (click)="openModalAccesos(item)" style="background:white;border: solid 1px #1827ff; color:#1827ff" [nzTooltipTitle]="'GESTIONAR ACCESOS'" nzTooltipPlacement="top" nz-tooltip></nz-avatar>
+    
+                </td>
+
+            
+            </tr>
+        </tbody>
+    </nz-table>
+
+</div>
+
+
+
+<nz-modal nzWrapClassName="vertical-center-modal" nzWidth="500px" [(nzVisible)]="modalRegistro" [nzOkLoading]="creandoUsuario"
+    nzTitle="REGISTRAR NUEVO USUARIO" (nzOnCancel)="modalRegistro = false" (nzOnOk)="crearUsuario()">
+
+    <ng-template nzModalContent class="steps-content">
+
+        <div class="steps-content_modal">
+            <nz-row>
+                <nz-col nzSpan="24">
+
+                  
+
+                    <form nz-form [formGroup]="registerForm" class="login-form" >
+                            
+                        <nz-form-item>
+                        <nz-form-control nzErrorTip="Por favor ingrese un Correo Electronico!">
+                            <nz-input-group nzPrefixIcon="user">
+                            <input type="text" nz-input formControlName="email" placeholder="Email" />
+                            </nz-input-group>
+                        </nz-form-control>
+                        </nz-form-item>
+                        <nz-form-item>
+                        <nz-form-control nzErrorTip="Por favor ingrese su contraseña!">
+                            <nz-input-group nzPrefixIcon="lock">
+                            <input type="password" nz-input formControlName="password" placeholder="Password" />
+                            </nz-input-group>
+                        </nz-form-control>
+                        </nz-form-item>
+
+                        <nz-form-item>
+                        <nz-form-control nzErrorTip="Por favor ingrese un Nombre!">
+                            <nz-input-group nzPrefixIcon="user">
+                            <input type="text" nz-input formControlName="name" placeholder="Nombre" />
+                            </nz-input-group>
+                        </nz-form-control>
+                        </nz-form-item>
+
+                        <nz-form-item>
+                        <nz-form-control nzErrorTip="Por favor ingrese un Apellido">
+                            <nz-input-group nzPrefixIcon="user">
+                            <input type="text" nz-input formControlName="lastname" placeholder="Apellido" />
+                            </nz-input-group>
+                        </nz-form-control>
+                        </nz-form-item>
+
+                        <nz-form-item>
+                            <nz-form-control nzErrorTip="Por favor ingrese un Telefono!">
+                                <nz-input-group nzPrefixIcon="user">
+                                <input type="number" nz-input formControlName="phone" placeholder="Telefono" />
+                                </nz-input-group>
+                            </nz-form-control>
+                        </nz-form-item>
+
+                        <nz-form-item>
+                            <nz-form-control nzErrorTip="Seleccione Tipo de Usuario!">
+                                <nz-select name="select-error" formControlName="tipo" nzPlaceHolder="Seleccione tipo Usuario" [ngModel]="tipoUsuario">
+                                    <nz-option nzValue="1" nzLabel="SUPER USUARIO"></nz-option>
+                                    <nz-option nzValue="2" nzLabel="ADMINISTRADOR"></nz-option>
+                                    <nz-option nzValue="3" nzLabel="NORMAL"></nz-option>
+                                </nz-select>
+    
+                            </nz-form-control>
+    
+                        </nz-form-item>
+
+                        
+                    </form>
+
+                </nz-col>
+            </nz-row>
+
+        </div>
+    </ng-template>
+</nz-modal>
+
+
+
+<nz-modal nzWrapClassName="vertical-center-modal"  [(nzVisible)]="modalGestionRoles" nzTitle="GESTIONAR ROLES DE USUARIO" 
+(nzOnCancel)="modalGestionRoles = false"  (nzOnOk)="cerraModalRoles()" nzWidth="1400px">
+    <ng-container *nzModalContent>
+
+
+        <ng-container *ngIf="usuarioSeleccionado.tipo === '1'">
+
+            <div class="steps-content">
+                 <nz-result nzStatus="info" nzTitle="ESTE USUARIO ES DE TIPO SUPERUSUARIO PARA GESTIONAR LA APLICACIÓN">
+                </nz-result>
+            </div>
+
+        </ng-container>
+
+        <ng-container *ngIf="usuarioSeleccionado.tipo === '2'">
+            <div class="steps-content">
+
+                <nz-result nzStatus="info" nzTitle="ESTE USUARIO ES DE TIPO ADMINISTRADOR TIENE ACCESO A TODOS LOS INDICADORES">
+                    
+                </nz-result>
+
+    
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="usuarioSeleccionado.tipo === '3'">
+
+            
+            <div class="steps-content">
+    
+                <div style="text-align: center; color: #909090; font-size: xx-large;">
+                    <p>USUARIO: {{usuarioSeleccionado.nombre}} {{usuarioSeleccionado.apellido}}</p>
+                </div>
+                    
+                    <div cdkDropListGroup>
+
+                        <nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+
+   
+
+                            <nz-col class="gutter-row" nzSpan="12">
+
+                                <cdk-virtual-scroll-viewport itemSize="3" class="demo-infinite-container">
+
+
+
+                                    <div class="example-container">
+    
+    
+                                        <div
+                                            cdkDropList
+                                            [cdkDropListData]="listUserRolesAsignados"
+                                            class="example-list"
+                                            (cdkDropListDropped)="drop($event, 'asignar')">
+    
+                                            <nz-card nzTitle="INDICADORES ASIGNADOS" style="background-color: #fafafa;">
+    
+                                                <ng-container *ngIf="listUserRolesAsignados.length>0; else noData">
+    
+                                                    <div class="example-box" *ngFor="let item of listUserRolesAsignados" cdkDrag>
+    
+                                            
+                                                        <nz-col style="text-align: start;" class="gutter-row" nzSpan="6">
+                                                            <nz-avatar nzIcon="fund" style="background:white;border: solid 1px #1890ff; color:#1890ff" [nzTooltipTitle]="'INDICADOR'" nzTooltipPlacement="top" nz-tooltip></nz-avatar>
+                                                            <p style="color: rgb(161, 161, 161);">Indicador</p>
+            
+                                                        </nz-col>
+                                                        <nz-col style="text-align: start;" class="gutter-row" nzSpan="18">
+        
+                                                            <nz-row style="margin-bottom: 5px;" [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                                                                <nz-col  class="gutter-row" nzSpan="18">
+                                                                    <nz-tag style="border-radius: 10px;" [nzColor]="'#f50'">CRITERIO: {{item.criterio_descripcion}}</nz-tag>
+                                                                </nz-col>
+        
+                                                            </nz-row>
+        
+                                                            <nz-row style="margin-bottom: 5px;" [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                                                                <nz-col  class="gutter-row" nzSpan="18">
+                                                                    <nz-tag style="border-radius: 10px;" [nzColor]="'#2db7f5'">SUB CRITERIO: {{item.subcriterio_descripcion}}</nz-tag>
+                                                                </nz-col>
+        
+                                                            </nz-row>
+        
+                                                            <nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                                                                <nz-col  class="gutter-row" nzSpan="18">
+                                                                    <p style="color: rgb(161, 161, 161);">INDICADOR: {{item.indicador_descripcion}}</p>
+                                                                </nz-col>
+        
+                                                            </nz-row>
+        
+                                                        </nz-col>
+            
+                                                    
+                                                    </div>
+                                                </ng-container>
+    
+                                                <ng-template #noData>
+    
+                                                    <nz-empty  nzNotFoundImage="simple" nzNotFoundContent="NO TIENE IDICADORES ASIGNADOS"></nz-empty> 
+    
+                                                </ng-template>
+    
+                                            </nz-card>
+    
+                                        </div>
+                                    
+                                    </div>
+
+                                </cdk-virtual-scroll-viewport>
+    
+                            </nz-col>
+
+                           
+
+
+                            <nz-col class="gutter-row" nzSpan="12">
+
+                                <cdk-virtual-scroll-viewport itemSize="3" class="demo-infinite-container">
+
+
+                                    <div class="example-container">
+    
+                                        <div
+                                            cdkDropList
+                                            [cdkDropListData]="listUserRolesNoAsignados"
+                                            class="example-list"
+                                            (cdkDropListDropped)="drop($event, 'asignado')">
+    
+    
+                                            <nz-card nzTitle="INDICADORES PARA ASIGNAR" style="background-color: #fafafa;">
+    
+                                                <div class="example-box" *ngFor="let item of listUserRolesNoAsignados" cdkDrag>
+    
+                                            
+                                                    <nz-col style="text-align: start;" class="gutter-row" nzSpan="6">
+                                                        <nz-avatar nzIcon="fund" style="background:white;border: solid 1px #1890ff; color:#1890ff" [nzTooltipTitle]="'INDICADOR'" nzTooltipPlacement="top" nz-tooltip></nz-avatar>
+                                                        <p style="color: rgb(161, 161, 161);">Indicador</p>
+        
+                                                    </nz-col>
+                                                    <nz-col style="text-align: start;" class="gutter-row" nzSpan="18">
+    
+                                                        <nz-row style="margin-bottom: 5px;" [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                                                            <nz-col  class="gutter-row" nzSpan="18">
+                                                                <nz-tag style="border-radius: 10px;" [nzColor]="'#f50'">CRITERIO: {{item.criterio_descripcion}}</nz-tag>
+                                                            </nz-col>
+    
+                                                        </nz-row>
+    
+                                                        <nz-row style="margin-bottom: 5px;" [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                                                            <nz-col  class="gutter-row" nzSpan="18">
+                                                                <nz-tag style="border-radius: 10px;" [nzColor]="'#2db7f5'">SUB CRITERIO: {{item.subcriterio_descripcion}}</nz-tag>
+                                                            </nz-col>
+    
+                                                        </nz-row>
+    
+                                                        <nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                                                            <nz-col  class="gutter-row" nzSpan="18">
+                                                                <p style="color: rgb(161, 161, 161);">INDICADOR: {{item.indicador_descripcion}}</p>
+                                                            </nz-col>
+    
+                                                        </nz-row>
+    
+                                                    </nz-col>
+        
+                                                
+                                                </div>
+        
+    
+                                            </nz-card>
+    
+    
+                                        </div>
+                                    </div>
+
+                                </cdk-virtual-scroll-viewport>
+        
+
+
+                            </nz-col>
+
+
+                        </nz-row>
+                    </div>
+                
+            </div>
+
+               
+        </ng-container>
+
+       
+       
+
+
+      
+  </ng-container>
+</nz-modal>

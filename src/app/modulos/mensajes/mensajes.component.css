@@ -1,0 +1,189 @@
+#clientesicon{
+    font-size: 30px;
+    opacity: 0.6;
+    transition: 1s all;
+    padding-right: 20px;
+}
+  
+.steps-content {
+    margin-top: 16px;
+    padding-top: 24px;
+    padding-right: 24px;
+    padding-left: 24px;
+    border-radius: 6px;
+    background-color: #f4f4f4;
+    min-height: 450px;
+   
+}
+
+.steps-content_modal{
+    margin-top: 16px;
+    border-radius: 6px;
+    background-color: #f4f4f4;
+    min-height: 100px;
+    padding-top: 24px;
+    padding-right: 24px;
+    padding-left: 24px;
+  
+  }
+  
+
+.demo-infinite-container {
+    height: 410px;
+    border: 2px solid #cecece;
+    border-radius: 20px;
+    
+}
+
+.contenedorPrincipal{
+
+    display: grid;
+    grid-template-columns: 100%;
+    grid-gap: 0.625rem;
+    grid-auto-rows: minmax(0px, auto);
+
+
+}
+
+.contenedorMensaje{
+    display: grid;
+    grid-template-columns: .5fr 1fr .5fr ;
+    min-height: 7.5rem;
+    grid-gap: 0.625rem;
+    grid-auto-rows: repeat(1, 1fr);
+    padding: 0.625rem 0.625rem 0.625rem 0.625rem;
+    
+    border: 2px solid rgba(221, 221, 221, 0.42);
+    
+}
+
+.contenedorImagen {
+    grid-column: 1 / 1;
+    grid-row: 1; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagen{
+    font-size: 30px;
+    opacity: 0.6;
+    transition: 1s all;
+    padding-right: 20px;
+    color: red;
+}
+
+.contenedorDetalle {
+
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: .5fr 1fr;
+
+}
+
+.usuarioMensaje{
+
+    grid-column: 1 / 1;
+    grid-row: 1; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+
+}
+
+.mensajeTexto{
+
+    grid-column: 1 / 1;
+    grid-row: 2; 
+    color: #a4a4a4;
+
+}
+
+.contenedorAcciones {
+
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: .5fr .1fr .1fr;
+
+
+}
+
+.fecha{
+    grid-column: 1 / 1;
+    grid-row: 1; 
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+
+}
+
+.hora{
+    grid-column: 1 / 1;
+    grid-row: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+
+}
+
+.botonAccion{
+
+    grid-column: 1 / 1;
+    grid-row: 3; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+
+
+.contenedorMensaje:hover {
+    background: #e3e3e3 !important;
+}
+
+.contenedorFiltro{
+
+    display: grid;
+    grid-template-columns: .5fr .5fr .5fr 1fr;
+    grid-gap: 0.625rem;
+    grid-auto-rows: minmax(0px, auto);
+
+
+}
+
+.todos{
+
+    grid-column: 1 / 1;
+    grid-row: 1; 
+}
+
+.enviados{
+    grid-column: 2 / 2;
+    grid-row: 1; 
+
+}
+  
+.recibidos{
+    grid-column: 3 / 3;
+    grid-row: 1; 
+
+}
+
+.espacio{
+    grid-column: 4 / 4;
+    grid-row: 1; 
+}
+  
+
+.user-image{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+  
+.limitTextHeight {
+    height: 20px;
+    overflow: hidden;
+}

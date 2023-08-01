@@ -1,0 +1,20 @@
+.steps-content {
+    margin-top: 16px;
+    border-radius: 6px;
+    background-color: #f4f4f4;
+    min-height: 300px;
+    padding-top: 24px;
+    padding-right: 24px;
+    padding-left: 24px;
+}
+
+.steps-content_modal{
+  margin-top: 16px;
+  border-radius: 6px;
+  background-color: #f4f4f4;
+  min-height: 100px;
+  padding-top: 24px;
+  padding-right: 24px;
+  padding-left: 24px;
+
+}
